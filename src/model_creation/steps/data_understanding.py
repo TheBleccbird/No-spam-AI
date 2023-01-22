@@ -21,3 +21,4 @@ def data_understanding():
     balanced_count = dataset["label"].value_counts()
     print("\nIl bilanciamento del dataset di partenza è: \n" + str(balanced_count) + "\n")
 
+    return dataset
