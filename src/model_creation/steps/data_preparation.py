@@ -1,10 +1,13 @@
 import pandas as pd
 import steps.data_preprocessing as pr
+import steps.utils as utils
+import sklearn
 
 
 def data_preparation(dataset):
     cleaned_dataset = data_cleaning(dataset)
-    final_dataset_creation(cleaned_dataset)
+    balanced_dataset = data_balancing(cleaned_dataset)
+    final_dataset_creation(balanced_dataset)
 
 
 def data_cleaning(dataset):
@@ -17,11 +20,18 @@ def data_cleaning(dataset):
     # elimino le righe che hanno valore null o simili
     dataset = dataset.dropna()
 
+    balanced_count = dataset["label"].value_counts()
+    print("\nIl bilanciamento del dataset dopo la rimozione duplicati e valori null è: \n" + str(balanced_count) + "\n")
+    utils.create_data_plot(dataset, "Bilanciamento dataset dopo la pulizia di duplicati e valori null")
+
     # viene eseguita la pipeline di pulizia dati
     pr.clean_up_pipeline(dataset)
 
     # dopo queste fasi potrebbero uscire altre righe vuote, le elimino
     dataset = dataset.dropna()
+    balanced_count = dataset["label"].value_counts()
+    print("\nIl bilanciamento del dataset dopo le fasi di pulizia è: \n" + str(balanced_count) + "\n")
+    utils.create_data_plot(dataset, "Bilanciamento dataset dopo le fasi di pulizia")
 
     return dataset
 

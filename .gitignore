@@ -23,3 +23,12 @@
 hs_err_pid*
 /src/model_creation/dataset/dataset_full.csv
 /src/model_creation/dataset/dataset_final.csv
+/src/model_creation/steps/dataset/dataset_final.csv
+/src/model_creation/steps/dataset/dataset_full.csv
+/src/model_creation/steps/dataset/dataset_preview.csv
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/No-spam-AI-git.iml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
+/.idea/.gitignore
